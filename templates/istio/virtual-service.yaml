@@ -1,4 +1,3 @@
-# istio-routing.yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -30,18 +29,3 @@ spec:
         - destination:
             host: myapp
             subset: v1
----
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  name: myapp
-  namespace: istio-test
-spec:
-  host: myapp
-  subsets:
-    - name: v1
-      labels:
-        version: v1
-    - name: v2
-      labels:
-        version: v2
