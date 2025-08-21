@@ -139,3 +139,18 @@ flowchart TD
     PodV1 -->|Hello from v1| Client
     PodV2 -->|Hello from v2| Client
 ```
+# 🧹 Cleanup
+When you’re done testing, you can remove all resources to free up your cluster:
+```bash
+# Delete Istio configs
+kubectl delete -f istio/.
+
+# Delete app deployments and services
+kubectl delete -f k8s/.
+
+# Delete the namespace
+kubectl delete -f k8s/namespace.yaml
+
+# Stop minikube (optional)
+minikube stop
+```
